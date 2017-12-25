@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <!--开启前段控制器
+      前段控制器的职责：
+      1丶分配，调度请求
+      2、开启spring容器（web层容器）
+      默认情况下：容器开启之后，回去web-inf目录下，查找springMVC-servlet.xml
+  -->
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--如果是maven项目配置文件一般放置在src/main/resources 此时DispatcherServlet 再去从web-info下找寻时，就找不到了，解决办法：告诉DispatcherServlet应该去哪里找-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-servlet.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <!--在springMVC框架中DispatcherServlet类中，/代表/*-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
