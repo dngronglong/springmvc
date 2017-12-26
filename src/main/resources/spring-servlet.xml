@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -13,6 +14,8 @@
         <!-- 开启springmvc注解支持 -->
         <context:component-scan base-package="org.project.springmvc" />
         <mvc:annotation-driven />
+        <!--定义静态资源包，目的是：满足/static/**格式的请求，不需要去查找映射 关系-->
+        <mvc:resources mapping="/static/" location="/static/**"></mvc:resources>
         <!-- 配置一个试图解析器ViewResolver(应用控制器) -->
         <bean id="internalResourceViewResolver"
               class="org.springframework.web.servlet.view.InternalResourceViewResolver">
