@@ -10,6 +10,7 @@
 <head>
     <title>我的主页</title>
 </head>
+<script type="text/javascript" src="static/js/jquery.min.js" charset="utf-8"></script>
 <body>
     <form action="usermag/login2" method="post">
         <input type="text" placeholder="账户名" name="userName"><br>
